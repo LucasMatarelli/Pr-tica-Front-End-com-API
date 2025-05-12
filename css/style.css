@@ -1,0 +1,112 @@
+:root {
+  --primary: #4f46e5;
+  --light: #f3f4f6;
+  --dark: #1f2937;
+  --spacing: 1rem;
+  --radius: 0.5rem;
+  --transition: 0.3s;
+}
+
+/* Base */nbody {
+  font-family: 'Inter', sans-serif;
+  color: var(--dark);
+  background: var(--light);
+  padding: var(--spacing);
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing);
+}
+.btn-swagger {
+  background: var(--primary);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: background var(--transition);
+}
+.btn-swagger:hover { background: #4338ca; }
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--spacing);
+}
+.card {
+  background: #fff;
+  padding: var(--spacing);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.form-card input {
+  width: calc(100% - 2rem);
+  margin-bottom: var(--spacing);
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: var(--radius);
+}
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.btn-primary:hover { background: #4338ca; }
+.feedback { margin-top: 0.5rem; color: green; }
+
+.table-responsive { overflow-x: auto; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+td img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity var(--transition);
+}
+.modal.hidden { opacity: 0; pointer-events: none; }
+.modal-content {
+  background: #fff;
+  padding: var(--spacing);
+  border-radius: var(--radius);
+  position: relative;
+  width: 90%;
+  max-width: 400px;
+  animation: slideIn var(--transition) ease-out;
+}
+.close-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+@keyframes slideIn {
+  from { transform: translateY(-20px); }
+  to { transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  main { grid-template-columns: 1fr; }
+}
